@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <title>Crop Finder</title>
+    <link rel="icon" type="image/png" href="src/data/img/plant.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#81c784">
+    
+    <link rel="manifest" href="src/manifest.json">
+    <link rel="stylesheet" href="src/styles/main.css?v=2">
+</head> 
+<body>
+    <div class="container">
+        
+        <h1>Find Crop Planting Essentials</h1>
+     
+       
+        <form id="search-form">
+            <input type="text" id="crop-search" placeholder="Enter crop name..." autocomplete="off" />
+            <button type="submit">Search</button>
+        </form>
+        <div id="crop-info"></div>
+ <a href="src/contact.html"><button>Contact Us  </button> </a>
+    </div>
+    <script src="src/scripts/app.js?v=2"></script>
+
+   
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('src/sw.js').catch(function(err){
+                console.warn('SW registration failed:', err);
+            });
+        }
+    </script>
+
+
+    
+</body>
+</html>
