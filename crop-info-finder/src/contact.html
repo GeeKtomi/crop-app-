@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Form</title>
+  <link rel="icon" type="image/png" href="data/img/plant.png">
+ 
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    
+    (function(){
+      emailjs.init("g5xCxugkPHYTV3c_8"); 
+    })();
+
+    function sendEmail(event){
+      event.preventDefault(); 
+
+    
+      emailjs.sendForm("service_n2hkkbo", "template_yza1f02", event.target)
+      .then(() => {
+        alert("Message sent Thank you for your Response ✅");
+        event.target.reset(); 
+      }, (error) => {
+        alert("Sorry Your Message failed to send. Please Retry or Cnfirm you have Internet Access ❌\n" + JSON.stringify(error));
+      });
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #e6f9e6 0%, #c8e6c9 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .contact-box {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 350px;
+    }
+
+    .contact-box h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .contact-box input,
+    .contact-box textarea,
+    .contact-box button {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .contact-box button {
+      background: #6a5acd;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .contact-box button:hover {
+      background: #5846c3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contact-box">
+    <h2>Contact Us</h2>
+    
+    <form onsubmit="sendEmail(event)">
+      <input type="text" name="from_name" placeholder="Your Name" required>
+      <input type="number" name="from_number" placeholder="Your Phone Number" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+      
+    </form>
+  <button onclick="window.location.href='index.html'" 
+        style="background:#ccc; color:#000; margin-top:5px; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;">
+  Back to Home
+</button>
+
+  </div>
+
+</body>
+</html>

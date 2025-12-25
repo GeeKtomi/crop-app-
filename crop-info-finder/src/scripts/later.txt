@@ -1,0 +1,13 @@
+// ...existing crops object...
+
+// Simple autocomplete/autofill for the search bar
+const cropNames = Object.keys(crops);
+const cropSearch = document.getElementById('crop-search');
+cropSearch.addEventListener('input', function() {
+    const val = this.value.toLowerCase();
+    const match = cropNames.find(name => name.startsWith(val));
+    if (match && val.length > 0) {
+        this.value = match;
+        this.setSelectionRange(val.length, match.length);
+    }
+});
